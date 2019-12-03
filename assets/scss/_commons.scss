@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-main;
+    font-size: 16px;
+    color: $color-main;
+}
+
+body {
+    margin: 0;
+    overflow: hidden
+}
+
+.fa-play-circle,
+.fa-pause-circle {
+    color: rgba($color-light, 0.4);
+    font-size: 30vh;
+}
+
+.fa-angle-left,
+.fa-angle-right,
+{
+    color: rgba($color-light, 0.7);
+    font-size: 40px;
+}

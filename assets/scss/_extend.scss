@@ -1,0 +1,14 @@
+%text-media {
+    @include lg-min {
+        font-size: 4rem;
+    }
+    @include lg-md {
+        font-size: 2.5rem;
+    }
+    @include md {
+        font-size: 2rem;
+    }
+    @include sm {
+        font-size: 1.5rem;
+    }
+}

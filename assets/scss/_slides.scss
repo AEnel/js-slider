@@ -1,0 +1,104 @@
+.slides {
+    position: relative;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background: $color-main;
+    .slide {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 1s;
+        padding: $gap * 3;
+        background-position: 50% 50%;
+        background-size: cover;
+        font-size: $gap * 3;
+        .slide-overlay {
+            opacity: 0;
+            .slide__text {
+                transition: opacity 0.1s ease;
+                color: $color-light;
+                &-heading {
+                    position: absolute;
+                    top: 0;
+                    left: 15%;
+                    text-shadow: 0 0 1em $color-gray-dark;
+                    @extend %text-media;
+                }
+                &-desc {
+                    position: absolute;
+                    bottom: 12%;
+                    right: 10%;
+                    text-shadow: 0 0 1em $color-gray-dark;
+                    @extend %text-media;
+                }
+            }
+        }
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+    .slide-overlay {
+        transition: opacity 0.2s ease;
+        opacity: 1;
+        .slide__text {
+            transition: opacity 0.1s ease;
+            &-heading {
+                animation-name: heading;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                visibility: visible;
+            }
+            @keyframes heading {
+                0% {
+                    transform: translateX(-150%);
+                }
+                50% {
+                    transform: translateX(4%);
+                }
+                65% {
+                    transform: translateX(8%);
+                }
+                80% {
+                    transform: translateX(4%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+            &-desc {
+                animation-name: desc;
+                animation-duration: 1s;
+                animation-timing-function: ease;
+                visibility: visible;
+                @keyframes desc {
+                    0% {
+                        transform: translateX(150%);
+                    }
+                    50% {
+                        transform: translateX(4%);
+                    }
+                    65% {
+                        transform: translateX(8%);
+                    }
+                    80% {
+                        transform: translateX(4%);
+                    }
+                    95% {
+                        transform: translateX(2%);
+                    }
+                    100% {
+                        transform: translateX(0%);
+                    }
+                }
+            }
+        }
+    }
+}
