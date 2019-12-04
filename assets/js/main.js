@@ -5,14 +5,9 @@ var slideInterval;
 var indContainer = document.querySelector('.indicators');
 var indItems = document.querySelectorAll('.indicator');
 
-
 const LEFT_ARROW = 'ArrowLeft';
 const RIGHT_ARROW = 'ArrowRight';
 const SPACE = ' ';
-
-
-// document.querySelector('.controls').style.display = 'flex';
-// indContainer.style.display = 'flex';
 
 function gotoNSlide(n) {
     slideItems[currentSlide].classList.toggle('active');
@@ -28,7 +23,6 @@ function gotoNextSlide() {
 
 function gotoPrevSlide() {
     gotoNSlide(currentSlide - 1);
-
 }
 
 var playbackStatus = true;
@@ -42,7 +36,6 @@ function pauseSlideShow() {
         pauseBtn.innerHTML = '<i class="far fa-play-circle"></i>';
         playbackStatus = !playbackStatus;
     }
-
 }
 
 function playSlideShow() {
@@ -74,41 +67,20 @@ pauseBtn.addEventListener('click', clickPausePlayBtn);
 nextBtn.addEventListener('click', clickNextBtn);
 prevBtn.addEventListener('click', clickPrevBtn);
 
-for (var i = 0; i < slideLength; i++) {
-    indItems[1].onclick = function() {
-        pauseSlideShow();
-        gotoNSlide(+this.getAttribute('data-slide-to'));
-    }
-}
-
 function clickIndicatorBtn(e) {
-    var target = e.target;
+    let target = e.target;
 
     if (target.classList.contains('indicator')) {
         pauseSlideShow();
         gotoNSlide(+target.getAttribute('data-slide-to'));
     }
-
 }
-
-
 
 function pressKeyControl(e) {
     if (e.key === LEFT_ARROW) clickPrevBtn();
     if (e.key === RIGHT_ARROW) clickNextBtn();
     if (e.key === SPACE) clickPausePlayBtn();
-
-
-
-
-    // console.log(e.key);
-    // // ArrowLeft ArrowRight
 }
-
-
-
-
-
 
 document.addEventListener('keydown', pressKeyControl);
 indContainer.addEventListener('click', clickIndicatorBtn);
